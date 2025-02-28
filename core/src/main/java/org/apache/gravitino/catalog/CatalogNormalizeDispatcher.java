@@ -43,12 +43,12 @@ public class CatalogNormalizeDispatcher implements CatalogDispatcher {
    *
    * <p>^\w - Starts with a letter, digit, or underscore
    *
-   * <p>[\w]{0,63} - Followed by 0 to 63 characters (making the total length at most 64) of letters
-   * (both cases), digits, underscores
+   * <p>[\w/=-]{0,63} - Followed by 0 to 63 characters (making the total length at most 64) of alphanumeric characters,
+   * underscores, slashes (/), equal signs (=), or hyphens (-)
    *
    * <p>$ - End of the string
    */
-  private static final String CATALOG_NAME_PATTERN = "^\\w[\\w]{0,63}$";
+  private static final String CATALOG_NAME_PATTERN = "^\\w[\\w/=-]{0,63}$";
 
   private final CatalogDispatcher dispatcher;
 
